@@ -87,8 +87,12 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'd50a41chm7u5k0',
+        'USER': 'rfzhyhvbhhsyyw',
+        'PASSWORD': '05532c193c3d3ac1e637549921bac109d05a0af494fedff80e74da9b6b17b840',
+        'HOST': 'ec2-54-221-198-206.compute-1.amazonaws.com',
+        'PORT': '5432',
     }
 }
 
@@ -152,7 +156,7 @@ STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 #EMAIL
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'nabtest002@gmail.com'
-EMAIL_HOST_PASSWORD = 'nabtest_002'
+EMAIL_HOST_USER = 'useremail@gmail.com'
+EMAIL_HOST_PASSWORD = 'userpassword'
 EMAIL_PORT = 587
 EMAIL_USE_TLS= True
