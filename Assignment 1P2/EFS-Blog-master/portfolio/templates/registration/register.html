@@ -1,0 +1,39 @@
+{% extends "portfolio/base.html" %}
+
+{% block content %}
+    <br>
+
+<div class="_image">
+<img src="https://s3.amazonaws.com/cdn.freshdesk.com/data/helpdesk/attachments/production/9003515931/original/Add_user_icon_(blue).svg.png?1458348983" width="10%" height="10%">
+</div>
+
+<div class="container">
+    <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">Welcome!</div>
+                    <div class="panel-body">
+                    Eagle Financial Services: New User Registration form.
+                    </div>
+                </div>
+            </div>
+    </div>
+
+</div>
+
+
+
+<br>
+<h4 style="font-family: 'Copperplate Gothic Bold'">Please fill-in the form to complete registration</h4>
+
+<div style="border-style: outset;border-width: thick; padding: 4%; align-content: center">
+    <form method="post" action=".">{% csrf_token %}
+        <table border="0">
+            {{ form.as_table }}
+        </table>
+        <br>
+        <input type="submit" value="Register"/>
+    </form>
+</div>
+
+{% endblock %}
