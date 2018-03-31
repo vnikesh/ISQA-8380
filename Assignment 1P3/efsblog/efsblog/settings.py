@@ -49,7 +49,7 @@ INSTALLED_APPS = [
     'mathfilters',
     'django.contrib.humanize',
     'portfolio',
-    'rest_framework'
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -89,10 +89,10 @@ WSGI_APPLICATION = 'efsblog.wsgi.application'
 DATABASES = {
      'default': {
          'ENGINE': 'django.db.backends.postgresql',
-         'NAME': 'd19bkr3gk8bn5n',
-         'USER': 'zjqgibgzionmjv',
-         'PASSWORD': '4472a289a73ffd33a47ada1928fac773b5a00db560fc40fcd8b0071dfd76f385',
-         'HOST': 'ec2-54-235-64-195.compute-1.amazonaws.com',
+         'NAME': 'dcg8shvnvpo8',
+         'USER': 'hlhjitytrxjdyc',
+         'PASSWORD': '494e9fb4ed8cc8084722e5b2bbc3a2ce0598350a6bc2907f7600c16084774482',
+         'HOST': 'ec2-54-163-234-99.compute-1.amazonaws.com',
          'PORT': '5432',
      }
 }

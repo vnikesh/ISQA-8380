@@ -1,0 +1,76 @@
+{% extends 'worldmap/base.html' %}
+{% load staticfiles %}
+{% block content %}
+    <div class="jumbotron planner" id="getstarted">
+        <div class="container text-center landing">
+            <h1>Get Started!</h1>
+            <p>Your next adventure is just a few clicks away!</p>
+            <button type="button" class="btn btn-success"><a href="#planner">Start planning</a></button>
+        </div>
+    </div>
+    <div class="container-fluid text-center">
+        <div class="row" id="planner">
+            <div class="col-sm-12">
+                <h2>Select one of the following categories:</h2>
+            </div>
+            <div class="col-sm-12 categorybox">
+                <div class="col-sm-4 travelcategory">
+                    <section class="p12">
+                        <a href="#map"  data-content="Nature" onclick="displayCategory('Nature')">Nature</a>
+                    </section>
+                </div>
+                <div class="col-sm-4 travelcategory">
+                    <section class="p16">
+                        <a href="#map" class="travelcategory" onclick="displayCategory('Citytrip')">Citytrip</a>
+                    </section>
+                </div>
+                <div class="col-sm-4 travelcategory">
+                    <section class="p11">
+                        <a href="#map" class="travelcategory" onclick="displayCategory('Road')">Road</a>
+                    </section>
+                </div>
+            </div>
+        </div>
+        <div class="row map" id="map">
+            <div class="col-sm-8" >
+                <h2>Map</h2>
+                <p id="TravelCategoryDisplay"></p>
+                <img src="https://media.wired.com/photos/59269e277034dc5f91bec140/master/w_2264,c_limit/world-song-map-large.jpg">
+            </div>
+            <div class="col-sm-4 mapPhotos">
+                <div class="col-sm-12">
+                    <h3>Introduction ...</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus elementum, felis id bibendum vulputate, dui eros dapibus nunc, ut fringilla elit nulla eget libero. Quisque tempor viverra pulvinar. Suspendisse potenti. Ut imperdiet mattis feugiat. Vestibulum varius urna et turpis convallis condimentum. Nam pharetra vel diam porttitor luctus. In augue sem, lobortis in placerat non, tincidunt nec lorem. Curabitur et neque in mauris dapibus tristique. Curabitur sed facilisis lectus. Pellentesque laoreet tortor eget cursus dignissim. Aliquam non mattis nulla. Nunc pretium purus ut convallis mollis. Cras tempor risus velit, luctus tincidunt ex pharetra nec. Aliquam neque ipsum, mattis eu lobortis non, aliquet quis lectus. Quisque metus ipsum, cursus vitae rutrum eu, viverra in odio. Donec viverra semper ante vitae placerat.
+                    </p>
+                </div>
+                <h3>Photos of your travel destination:</h3>
+                <div class="col-sm-6" id="mapPhoto1">
+                    <img src="https://centercityphila.org/uploads/attachments/cj1hy1ads08ev0oqdrc7f2evd-17-socc-intro.185.0.988.988.full.jpg">
+                </div>
+                <div class="col-sm-6" id="mapPhoto2">
+                    <img src="https://centercityphila.org/uploads/attachments/cj1hy1ads08ev0oqdrc7f2evd-17-socc-intro.185.0.988.988.full.jpg">
+                </div>
+            </div>
+        </div>
+        <div class="row" id="transport/accomodation">
+            <div class="col-sm-6">
+            <h3>Flights</h3>
+                <img src="https://thumbnails.trvl-media.com/XDLEvGqRCe48xzTW1YA1Bfw4klo=/media.expedia.com/media/content/expuk/graphics/landingpages/GMT/flightmerch/evergreen/image_gromerch-1640_532x299.jpg">
+            </div>
+            <div class="col-sm-6">
+                <h3>Accomodation</h3>
+                <img src="http://atigs2018.com/wp-content/uploads/2017/04/1-Hotel-Room.jpg"  style="max-width: 100%;">
+            </div>
+        </div>
+        <div class="row" id="chat">
+            <div class="col-sm-12">
+                <h3>Chat</h3>
+                <img src="https://www.codeproject.com/KB/WPF/1181555/Screenshot_1.png" style="max-width: 100%; max-height:100%;">
+            </div>
+        </div>
+    </div>
+<script>
+    $('#map').smoothScroll();
+</script>
+
+{% endblock %}

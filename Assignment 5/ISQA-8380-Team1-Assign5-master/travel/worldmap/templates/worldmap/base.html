@@ -1,0 +1,90 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Location Finder</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--internet css files -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!--static css files -->
+    <link rel="stylesheet" href="{% static 'css/animations.scss' %}">
+    <link rel="stylesheet" href="{% static 'css/worldmap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styling.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/media-queries.css' %}">
+
+    <!--internet js files -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!--APIs -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDcUbUzlOE1t6OIbdZpQx7k1IQgSfUYhmA&callback=initMap"
+    async defer></script>
+
+    <!--static js files -->
+    <script type="text/javascript" src="{% static 'js/jquery.smoothscroll.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/js.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/worldmap.js' %}"></script>
+    <script>
+            $(function() {
+            $('html').smoothScroll(500);
+            });
+    </script>
+
+</head>
+<body id="app-layout" onload="initMap()">
+
+    <nav class="navbar navbar-default navbar-fixed-top sticky">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- <a class="navbar-brand" href="index.html"><img src="css/images/logo.jpg"></a> -->
+            </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li><a href="{% url 'worldmap:home' %}">Home</a></li>
+                <li><a href="index.html#features">Features</a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toogle" data-toggle="dropdown" href="planner.html#plannertext">Planner
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{% url 'worldmap:getStarted' %}">Get Started</a></li>
+                        <li><a href="planner.html#map">Map</a></li>
+                        <li><a href="planner.html#map">Flights</a></li>
+                        <li><a href="planner.html#map">Accomodation</a></li>
+                        <li><a href="planner.html#chat">Chat</a></li>
+                    </ul>
+                </li>
+                <li><a href="">Contact</a></li>
+            </ul>
+            <ul class="nav navbar-nav ">
+                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="{% url 'thirdauth:logout' %}"><span class="glyphicon glyphicon-off"></span> Logout</a></li>
+            </ul>
+        </div>
+    </div>
+        <div class="filler"></div>
+    </nav>
+
+{% block content %}
+{% endblock %}
+
+<footer class="container-fluid text-center">
+    <h2>Footer</h2>
+    <script>
+	   $('#features').smoothScroll();
+       $('#landingpage').smoothScroll();
+    </script>
+</footer>
+</body>
+</html>

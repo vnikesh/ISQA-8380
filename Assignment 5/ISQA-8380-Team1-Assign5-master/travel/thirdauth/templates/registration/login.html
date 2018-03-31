@@ -1,0 +1,17 @@
+{% extends 'thirdauth/base.html' %}
+
+{% block content %}
+  <h2>Login</h2>
+    <p> Or go back to the <a href="{% url 'worldmap:home' %}">home page</a></p>
+  <div class="login-form">
+      <form method="post" action="{% url 'thirdauth:authentication' %}">
+          {{form.as_p}}
+          {% csrf_token %}
+          <input type="hidden" name="next" value="{{ next }}" />
+          <p><input type="submit" value="Login"></p>
+      </form>
+  </div>
+  <br>
+  <p><strong>-- OR --</strong></p>
+  <a href="{% url 'thirdauth:social:begin' 'github' %}">Login with GitHub</a><br>
+{% endblock %}

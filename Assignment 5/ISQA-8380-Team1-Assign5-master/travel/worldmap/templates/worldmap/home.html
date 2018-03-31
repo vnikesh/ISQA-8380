@@ -1,0 +1,34 @@
+{% extends 'worldmap/base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+    <div class="jumbotron home" id="landingpage">
+        <div class="container text-center landing">
+            <h1>Find your next adventure!</h1>
+            <img src="{% static 'images/facebook.png' %}" class="loginbutton">
+        </div>
+    </div>
+    <div class="container-fluid text-center content">
+        <div class="row content" id="features">
+            <div class="col-sm-2 sidenav">
+                <p>Left Box with 20% </p>
+                <p>Phasellus dapibus, magna eu tincidunt tempus, augue leo aliquet dolor, quis viverra mauris mauris vel nulla. Aenean sit amet ligula vel sapien tempor dignissim pharetra ac sem. Duis nulla erat, molestie a libero a, accumsan luctus mi. Quisque interdum finibus mi in convallis. Cras lorem elit, feugiat quis mollis eget, lacinia vel felis. Integer efficitur enim lacus,     vitae facilisis lorem faucibus sit amet. Cras quis consequat dolor.
+                </p>
+            </div>
+            <div class="col-sm-8 text-left">
+                <h1>Other Content</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque imperdiet mi at dui lobortis, eu finibus est vestibulum. Nullam non felis nec nibh viverra aliquam. Aliquam semper accumsan lorem ut fermentum. Suspendisse posuere ornare sapien in blandit. Morbi a urna at lacus congue congue. Suspendisse laoreet ut turpis sed accumsan. Proin ut turpis quis erat maximus accumsan nec quis quam. Maecenas non scelerisque orci.
+                </p>
+                <img src= "{% static 'images/header.jpg' %}" style="max-width: 600px">
+                <p>Aenean sodales orci vitae magna porta, nec sollicitudin massa volutpat. Integer venenatis sem orci, vitae lobortis risus euismod ut. Etiam malesuada libero eu nisl sollicitudin consequat. Ut posuere eros at sapien imperdiet, egestas auctor quam dictum. Nunc erat erat, dignissim sed porttitor ac, fermentum nec massa. Duis quis ultricies orci. Maecenas a risus vel justo mollis molestie eu non massa. Integer efficitur magna quis tempus consequat. Vivamus pulvinar purus nec nulla scelerisque tristique. Vivamus lectus felis, consequat nec accumsan venenatis, sagittis sit amet tellus.</p>
+                <img src="https://travel.psu.edu/sites/travel/files/styles/1200x600/public/news/business-travel-picture-id498170329.jpg?itok=Dg_NYdC4">
+            </div>
+        <div class="col-sm-2 sidenav">
+            <p>Right Box with 20% </p>
+            <p>Vestibulum sed metus pellentesque ex dictum volutpat. Proin tincidunt consequat sem, ac facilisis libero porta eu. Pellentesque id nunc porttitor, auctor urna euismod, cursus sem. Praesent hendrerit, ligula ac sodales fringilla, arcu dolor malesuada lacus, non mollis ligula est vitae tortor. Etiam bibendum, eros at pellentesque vestibulum, justo augue fringilla leo, id porta mauris justo eget odio. Aenean aliquet maximus finibus.
+            </p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

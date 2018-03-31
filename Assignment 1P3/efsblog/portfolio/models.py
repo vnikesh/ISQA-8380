@@ -1,7 +1,9 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
-import requests
+from pip._vendor import requests
+
+
 
 class Customer(models.Model):
     name = models.CharField(max_length=50)

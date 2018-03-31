@@ -6,6 +6,7 @@ from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
 from .forms import *
 from django.db.models import Sum
+
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
@@ -240,10 +241,12 @@ def portfolio(request,pk):
 
 
    return render(request, 'portfolio/portfolio.html', {'customers': customers, 'investments': investments,
-                                                      'stocks': stocks, 'mutualfunds': mutualfunds,
-                                                      'sum_acquired_value': sum_acquired_value,'sum_recent_value': sum_recent_value,
+                                                       'stocks': stocks,
+                                                       'mutualfunds': mutualfunds,
+                                                       'sum_acquired_value': sum_acquired_value,
+                                                       'sum_recent_value': sum_recent_value,
                                                        'sum_current_stocks_value': sum_current_stocks_value,
-                                                        'sum_of_initial_stock_value': sum_of_initial_stock_value})
+                                                       'sum_of_initial_stock_value': sum_of_initial_stock_value})
 
 
 # List at the end of the views.py
