@@ -6,6 +6,10 @@ from django.shortcuts import redirect
 import json
 from watson_developer_cloud import ToneAnalyzerV3
 from watson_developer_cloud import LanguageTranslatorV2 as LanguageTranslator
+from watson_developer_cloud import PersonalityInsightsV3
+from watson_developer_cloud import NaturalLanguageUnderstandingV1
+from watson_developer_cloud.natural_language_understanding_v1 \
+  import Features, EntitiesOptions, KeywordsOptions
 
 
 def post_list(request):
@@ -18,6 +22,16 @@ def post_list(request):
     language_translator = LanguageTranslator(
         username='8b8d01c3-a816-43c2-91c0-89070fdd3672',
         password='w142M6bo3krn')
+
+    personality_insights = PersonalityInsightsV3(
+        version='2016-10-20',
+        username='a5a2fc67-a9fa-43f3-b820-a24238e372a5',
+        password='CK0sKUcSkHd8')
+
+    natural_language_understanding = NaturalLanguageUnderstandingV1(
+        username='92d06b0d-d197-4686-8ac8-b6d9a449b5fb',
+        password='UclOwSkBSuYr',
+        version='2018-03-16')
 
     # print(json.dumps(translation, indent=2, ensure_ascii=False))
 
@@ -43,6 +57,42 @@ def post_list(request):
         post.letterCount = post.obj2['character_count']
         post.translation = post.obj2['translations'][0]['translation']
 
+        profile = personality_insights.profile(
+            content=post.text, content_type='text/plain',
+            raw_scores=True, consumption_preferences=True)
+        insobj = (json.dumps(profile, indent=2, ensure_ascii=False))
+        post.Obj3 = json.loads(insobj)
+
+        post.wordcount = post.Obj3['word_count']
+        # post.wordcountmessage = post.Obj3['word_count_message']
+        post.percentile = post.Obj3['personality'][0]['percentile']
+        post.rawscore = post.Obj3['personality'][0]['raw_score']
+
+        natural = natural_language_understanding.analyze(
+            text=post.text,
+            features=Features(
+                entities=EntitiesOptions(
+                    emotion=True,
+                    sentiment=True,
+                    limit=2),
+                keywords=KeywordsOptions(
+                    emotion=True,
+                    sentiment=True,
+                    limit=2)))
+
+        naturalobj = (json.dumps(natural, indent=2))
+        post.Obj4 = json.loads(naturalobj)
+
+        post.text1 = post.Obj4['usage']['text_units']
+        post.text2 = post.Obj4['usage']['text_characters']
+        post.features = post.Obj4['usage']['features']
+        post.keywords = post.Obj4['keywords'][0]['text']
+        post.negative = post.Obj4['keywords'][0]['sentiment']['score']
+        post.sad = post.Obj4['keywords'][0]['emotion']['sadness']
+        post.joy = post.Obj4['keywords'][0]['emotion']['joy']
+        post.fear = post.Obj4['keywords'][0]['emotion']['fear']
+        post.disgust = post.Obj4['keywords'][0]['emotion']['disgust']
+        post.anger = post.Obj4['keywords'][0]['emotion']['anger']
 
     return render(request, 'blog/post_list.html', {'posts': posts})
 

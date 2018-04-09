@@ -14,9 +14,28 @@
         Joy : {{ post.joyScore }} |
         Sad : {{ post.sadScore }}</p>
 
-           <p>Translation: {{ post.translation}} |
+           <p><h5>Translation:</h5> {{ post.translation}} |
            Word: {{ post.wordCount }} |
            Character: {{ post.letterCount }}</p>
+		   
+		   <p> <h4> Personal Insight </h4> </p>
+       <p>Word Count: {{ post.wordcount }} |
+           Personal Percentile: {{ post.percentile }} |
+           Personal Raw Score: {{ post.rawscore }}
+       </p>
+
+           <p><h4> Natural Language </h4></p>
+       <p>Text Unit: {{ post.text1 }} |
+           Text Characters: {{ post.text2 }} |
+           Features: {{ post.features }} |
+           Keywords: {{ post.keywords }} |
+           Negative: {{ post.negative }} |
+           Sad: {{ post.sad }} |
+           Joy: {{ post.joy }} |
+           Fear: {{ post.fear }}
+           Disgust: {{ post.disgust }} |
+           Anger: {{ post.anger }}
+       </p>
 
        </div>
    {% endfor %}
